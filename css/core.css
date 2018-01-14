@@ -1,0 +1,127 @@
+/* Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) */
+/* --------------------------------------------------------------------------------------- */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+/* --------------------------------------------------------------------------------------- */
+
+body {
+    padding: 0px;
+    background: #000 url(../images/background.png);
+    background-size: auto 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Open Sans';
+}
+
+a { color: #f77; }
+
+strong { font-weight: bold; }
+
+.share { font-size: 0px; }
+
+.share a.facebook {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #3B5A95 url(../images/facebook.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+.share a.twitter {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #2ECBF8 url(../images/twitter.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: block;
+    max-width: 800px;
+    margin: 0px auto;
+    box-sizing: border-box;
+    padding: 15px;
+    text-shadow: 0px 1px 5px rgba(0, 0, 0, .8);
+}
+
+header strong {
+}
+
+header h1 {
+    padding: 0px 0px 30px 0px;
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+    line-height: 1.2em;
+    font-weight: 400;
+}
+header h3 {
+    font-family: 'Montserrat';
+    font-size: 1.3em;
+    line-height: 1.2em;
+}
+header h3 a {
+    font-weight: 500;
+    text-decoration: none;
+}
+header h3 a:hover {
+    text-decoration: underline;
+}
+
+header .share {
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'Montserrat';
+    font-size: 2em;
+    line-height: 1.2em;
+    font-weight: 500;
+    margin: 40px 0px 25px 0px;
+}
+
+p, li {
+    font-size: 1em;
+    line-height: 1.4em;
+    margin-bottom: 25px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px; 
+}
+
+img.photo {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    display: block;
+    max-width: 800px;
+    margin: 0px auto;
+    box-sizing: border-box;
+    padding: 15px;
+
+    background: rgba(0, 0, 0, .66);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .66);
+}
+
+@media screen and (min-width: 481px) {
+    body {
+        background-size: 100% auto;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    header h1 {
+        padding: 30px 0px 30px 0px;
+        font-size: 2.5em;
+    }
+
+    p, li {
+        font-size: 1.2em;
+        line-height: 1.4em;
+    }
+}
