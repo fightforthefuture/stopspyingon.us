@@ -224,6 +224,10 @@ footer p {
     margin-bottom: 0px;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .modal-wrapper {
     position: fixed;
     top: 0;
