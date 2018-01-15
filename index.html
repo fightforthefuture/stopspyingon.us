@@ -20,7 +20,7 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="en_GB" />
 <meta property="og:title" content="The Citizens' Veto" />
-<meta property="og:description" content="Tell the Senate— If you vote to let the FBI, NSA, and Trump spy on Americans without a warrant, we'll veto *you* in the next election." />
+<meta property="og:description" content="Tell the Senate— If you vote to let the FBI, NSA, and Trump spy on Americans without a warrant, we'll vote you out in the next election." />
 
 <!-- twitter -->
 <meta name="twitter:card" content="summary_large_image">
@@ -32,89 +32,123 @@
 <meta name="twitter:account_id" content="" />
 
 <!-- /*** social meta *** -->
-<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <link rel="canonical" href="http://www.vetocongress.org/" />
-<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="css/core.css">
+
+<!-- Vue.js event handlers -->
+<script src="js/vue.js"></script>
+<script src="js/vue-resource.js"></script>
+<script src="js/app.js"></script>
 
 </head>
 <body>
-
-    <header>
-        <h1>
-            <strong>Tell the Senate—</strong> If you vote to let the FBI, NSA, and Trump spy on Americans
-            without a warrant, we'll vote *you* out in the next election.
-        </h1>
-        <h3>
-            <strong>Call them:</strong> <a href="tel://12028043305">202-804-3305</a> or txt <strong>FREEDOM</strong> to <a href="sms:384387">384387</a>
+    <div id="app">
+        <header>
+            <h1>
+                <strong>Tell the Senate—</strong> If you vote to let the FBI, NSA, and Trump spy on Americans
+                without a warrant, we'll vote *you* out in the next election.
+            </h1>
+            <form @submit.prevent="submitForm()">
+                <p v-if="errorMessage" v-cloak class="error">{{ errorMessage }}</p>
+                <input type="tel" placeholder="Enter your phone #" autofocus required v-model="phone">
+                <button v-bind:disabled="isSubmitting">
+                    <span v-if="isSubmitting" v-cloak>Saving...</span>
+                    <span v-else>CALL</span>
+                </button>
+            </form>
+            <h3>
+                <strong>Call them:</strong> <a href="tel://12028043305">202-804-3305</a> or txt <strong>FREEDOM</strong> to <a href="sms:384387">384387</a>
+            </h3>
             <div class="share">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.vetocongress.org" class="facebook" target="_blank"></a>
-                <a href="https://twitter.com/intent/tweet?related=fightfortheftr&text=Tell%20the%20Senate%E2%80%94%20if%20you%20vote%20to%20let%20the%20FBI%2C%20NSA%2C%20and%20Trump%20spy%20on%20Americans%20without%20a%20warrant%2C%20we'll%20veto%20*you*%20in%20the%20next%20election.%20https%3A%2F%2Fwww.vetocongress.org" class="twitter" target="_blank"></a>
+                <a href="#" @click.prevent="shareOnFacebook()" class="facebook"></a>
+                <a href="#" @click.prevent="shareOnTwitter()" class="twitter"></a>
             </div>
-        </h3>
-    </header>
-    <section>
-        <p>
-            The Senate is less than 48 hours away from voting to extend the <a href="https://en.wikipedia.org/wiki/Foreign_Intelligence_Surveillance_Act" target="_blank">Foreign Intelligence
-            Surveillance Act</a> <strong>(FISA)</strong>, with no safeguards to protect the privacy of American
-            citizens. FISA was originally passed in the wake of the September 11 attacks to
-            allow the military to spy on the communications of foreign terrorists. Since then,
-            whistleblowers like <a href="https://en.wikipedia.org/wiki/Edward_Snowden#Revelations" target="_blank">Edward Snowden</a> and <a href="https://www.judicialwatch.org/press-room/press-releases/judicial-watch-sues-fbi-records-removal-former-deputy-assistant-director-peter-strzok-mueller-operation/" target="_blank">Judicial Watch</a> have revealed that the
-            executive branch has abused FISA with numerous exceptions, carve-outs, and
-            "creative interpretations," allowing agencies like the FBI, NSA, and the president
-            to spy on American citizens without a warrant.
-        </p>
-        <p>
-            Ironically, the vote hinges on Democratic lawmakers. After more than a year of
-            relentlessly calling Donald Trump a fascist, an authoritarian, and even comparing
-            him to Adolph Hitler, Democrats are on the verge of giving Trump six more years
-            of unrestricted mass surveillance authority. Meanwhile, Republicans have alleged
-            that President Obama abused FISA to improperly spy on the Trump campaign with no
-            civilian oversight. Democrat or Republican, no president should
-            have this authority.
-        </p>
-        <h2>
-            What we're doing:
-        </h2>
-        <p>
-            We are a nonpartisan coalition of civil rights advocacy groups, and we're crowdfunding
-            pre-election billboards in the Congressional districts of any politicans who support
-            warrantless mass surveillance of American citizens. We are also building a text list to
-            inform voters of their lawmakers' vote on FISA before the next election.
-            Text <strong>FREEDOM</strong> to <a href="sms:384387">384387</a> to participate.
-        </p>
-        <img src="./images/billboard.png" class="photo"/>
-        <h2>
-            What you can do:
-        </h2>
-        <p>
-            Call your senators! Don't let them sneak this one through. If just a few
-            Democratic senators change
-            their mind, the FISA Amendments Reauthorization Act will lose its filibuster-proof
-            majority and Senators Ron Wyden (D-OR) and Rand Paul (R-KY) will filibuster the bill,
-            demanding stronger privacy protections for American citizens.
-        </p>
-        <ul>
-            <li>Call <a href="tel://12028043305">202-804-3305</a> to speak to your senators.</li>
-            <li>Text <strong>FREEDOM</strong> to <a href="sms:384387">384387</a> to take the Citizens' Veto pledge and get notified of your senators' voting record before the next election.</li>
-            <li><a href="https://donate.fightforthefuture.org?tag=vetocongress" target="_blank">Donate</a> to crowdfund our pre-election billboards in the districts of politicians who vote the wrong way on mass surveillance!</li>
-            <li>Share this page! We have a real shot to make a difference on this vote.</li>
-        </ul>
-        <div class="share">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.vetocongress.org" class="facebook" target="_blank"></a>
-            <a href="https://twitter.com/intent/tweet?related=fightfortheftr&text=Tell%20the%20Senate%E2%80%94%20if%20you%20vote%20to%20let%20the%20FBI%2C%20NSA%2C%20and%20Trump%20spy%20on%20Americans%20without%20a%20warrant%2C%20we'll%20veto%20*you*%20in%20the%20next%20election.%20https%3A%2F%2Fwww.vetocongress.org" class="twitter" target="_blank"></a>
-        </div>
-        
-    </section>
-    <footer>
-        <div class="gutter">
-            <a href="https://www.fightforthefuture.org" target="_blank"><img src="./images/fftf_logo.png"/></a>
-            <p>For Press inquiries, please contact us at:</p>
+        </header>
+        <section>
             <p>
-                <a href="tel://1-978-852-6457">978-852-6457</a> or <a href="tel://1-978-852-6457">978-852-6457</a> or <a href="mailto:press@fightforthefuture.org">press@fightforthefuture.org</a><br />
+                The Senate is less than 48 hours away from voting to extend the <a href="https://en.wikipedia.org/wiki/Foreign_Intelligence_Surveillance_Act" target="_blank">Foreign Intelligence
+                Surveillance Act</a> <strong>(FISA)</strong>, with no safeguards to protect the privacy of American
+                citizens. FISA was originally passed in the wake of the September 11 attacks to
+                allow the military to spy on the communications of foreign terrorists. Since then,
+                whistleblowers like <a href="https://en.wikipedia.org/wiki/Edward_Snowden#Revelations" target="_blank">Edward Snowden</a> and <a href="https://www.judicialwatch.org/press-room/press-releases/judicial-watch-sues-fbi-records-removal-former-deputy-assistant-director-peter-strzok-mueller-operation/" target="_blank">Judicial Watch</a> have revealed that the
+                executive branch has abused FISA with numerous exceptions, carve-outs, and
+                "creative interpretations," allowing agencies like the FBI, NSA, and the president
+                to spy on American citizens without a warrant.
             </p>
-            <p>All other inquiries, contact <a href="mailto:team@fightforthefuture.org">team@fightforthefuture.org</a></p>
+            <p>
+                Ironically, the vote hinges on Democratic lawmakers. After more than a year of
+                relentlessly calling Donald Trump a fascist, an authoritarian, and even comparing
+                him to Adolph Hitler, Democrats are on the verge of giving Trump six more years
+                of unrestricted mass surveillance authority. Meanwhile, Republicans have alleged
+                that President Obama abused FISA to improperly spy on the Trump campaign with no
+                civilian oversight. Democrat or Republican, no president should
+                have this authority.
+            </p>
+            <h2>
+                What we're doing:
+            </h2>
+            <p>
+                We are a nonpartisan coalition of civil rights advocacy groups, and we're crowdfunding
+                pre-election billboards in the Congressional districts of any politicans who support
+                warrantless mass surveillance of American citizens. We are also building a text list to
+                inform voters of their lawmakers' vote on FISA before the next election.
+                Text <strong>FREEDOM</strong> to <a href="sms:384387">384387</a> to participate.
+            </p>
+            <img src="images/billboard.png" class="photo"/>
+            <h2>
+                What you can do:
+            </h2>
+            <p>
+                Call your senators! Don't let them sneak this one through. If just a few
+                Democratic senators change
+                their mind, the FISA Amendments Reauthorization Act will lose its filibuster-proof
+                majority and Senators Ron Wyden (D-OR) and Rand Paul (R-KY) will filibuster the bill,
+                demanding stronger privacy protections for American citizens.
+            </p>
+            <ul>
+                <li>Call <a href="tel://12028043305">202-804-3305</a> to speak to your senators.</li>
+                <li>Text <strong>FREEDOM</strong> to <a href="sms:384387">384387</a> to take the Citizens' Veto pledge and get notified of your senators' voting record before the next election.</li>
+                <li><a href="https://donate.fightforthefuture.org?tag=vetocongress" target="_blank">Donate</a> to crowdfund our pre-election billboards in the districts of politicians who vote the wrong way on mass surveillance!</li>
+                <li>Share this page! We have a real shot to make a difference on this vote.</li>
+            </ul>
+            <div class="share">
+                <a href="#" @click.prevent="shareOnFacebook()" class="facebook"></a>
+                <a href="#" @click.prevent="shareOnTwitter()" class="twitter"></a>
+            </div>
+            
+        </section>
+        <footer>
+            <div class="gutter">
+                <a href="https://www.fightforthefuture.org" target="_blank"><img src="images/fftf_logo.png"/></a>
+                <p>For Press inquiries, please contact us at:</p>
+                <p>
+                    <a href="tel://1-978-852-6457">978-852-6457</a> or <a href="tel://1-978-852-6457">978-852-6457</a> or <a href="mailto:press@fightforthefuture.org">press@fightforthefuture.org</a><br />
+                </p>
+                <p>All other inquiries, contact <a href="mailto:team@fightforthefuture.org">team@fightforthefuture.org</a></p>
+            </div>
+        </footer>
+
+        <div class="modal-wrapper" v-if="modalVisible" v-cloak>
+            <div class="flex-center">
+                <div class="modal">
+                    <button class="close" @click="hideModal()">&times;</button>
+
+                    <h2><b>Calling you now!</b></h2>
+                    <!-- <p><b>Introduce yourself, be polite and say:</b> something something something</p> -->
+
+                    <p><strong>Done calling? Help drive more calls!</strong></p>
+
+                    <div class="share">
+                        <a href="#" @click.prevent="shareOnFacebook()" class="facebook"></a>
+                        <a href="#" @click.prevent="shareOnTwitter()" class="twitter"></a>
+                    </div>
+                    <br>
+                </div>
+            </div>
         </div>
-    </footer>
+
+    </div> <!-- /app -->
 </body>
 </html>
