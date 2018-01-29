@@ -77,8 +77,8 @@
             
             
             <div class="share">
-                <a href="#" @click.prevent="shareOnFacebook()" class="facebook"></a>
-                <a href="#" @click.prevent="shareOnTwitter()" class="twitter"></a>
+                <a href="#" class="facebook"></a>
+                <a href="#" class="twitter"></a>
             </div>
         </header>
         <section>
@@ -127,8 +127,8 @@
                 <li>Share this page! Now is the time to prepare for the next opportunity to safeguard our privacy and freedoms in the U.S. Congress. To do that, we need to make sure that people understand what's happening.</li>
             </ul>
             <div class="share">
-                <a href="#" @click.prevent="shareOnFacebook()" class="facebook"></a>
-                <a href="#" @click.prevent="shareOnTwitter()" class="twitter"></a>
+                <a href="#" class="facebook"></a>
+                <a href="#" class="twitter"></a>
             </div>
             
             <h2>
@@ -159,7 +159,7 @@
             </div>
         </footer>
 
-        <div class="modal-wrapper" v-if="modalVisible" v-cloak>
+        <div class="modal-wrapper" v-show="modalVisible" v-cloak>
             <div class="flex-center">
                 <div class="modal">
                     <button class="close" @click="hideModal()">&times;</button>
@@ -170,8 +170,8 @@
                     <p><strong>Done calling? Help drive more calls!</strong></p>
 
                     <div class="share">
-                        <a href="#" @click.prevent="shareOnFacebook()" class="facebook"></a>
-                        <a href="#" @click.prevent="shareOnTwitter()" class="twitter"></a>
+                        <a href="#" class="facebook"></a>
+                        <a href="#" class="twitter"></a>
                     </div>
                     <br>
                 </div>
@@ -179,5 +179,8 @@
         </div>
 
     </div> <!-- /app -->
+
+    <!-- Free Progress A/B testing -->
+    <script src="https://fftf.io/js/client.js" type="text/javascript"></script>
 </body>
 </html>
