@@ -36,12 +36,12 @@
 <link rel="shortcut icon" href="images/favicon.ico">
 
 <link rel="canonical" href="https://www.stopspyingon.us/" />
-<link rel="stylesheet" href="css/core.css?v=3">
+<link rel="stylesheet" href="css/core.css?v=4">
 
 <!-- Vue.js event handlers -->
 <script src="js/vue.js"></script>
 <script src="js/vue-resource.js"></script>
-<script src="js/app.js?v=3"></script>
+<script src="js/app.js?v=4"></script>
 
 </head>
 <body>
@@ -51,18 +51,8 @@
         <header>
             <h1>
                 <strong>Congress just passed a law expanding authoritarian government surveillance powers for 6 more years.</strong>
-            </h1>
-           <!--
-            <form @submit.prevent="submitForm()">
-                <p v-if="errorMessage" v-cloak class="error">{{ errorMessage }}</p>
-                <input type="tel" placeholder="Enter your phone #" autofocus required v-model="phone">
-                <button v-bind:disabled="isSubmitting">
-                    <span v-if="isSubmitting" v-cloak>Saving...</span>
-                    <span v-else>CALL</span>
-                </button>
-            </form>  -->
-  
-                <h3>Lawmakers who voted for this law, don't belong in office. Text <strong>FREEDOM</strong> to 384-387 to take the Citizens' Veto pledge and get notified of your lawmakers' voting record before the next election.</a></h3> 
+            </h1>  
+            <h3>Lawmakers who voted for this law, don't belong in office. Text <strong>FREEDOM</strong> to 384-387 to take the Citizens' Veto pledge and get notified of your lawmakers' voting record before the next election.</a></h3> 
             <br/>
            
 
@@ -74,6 +64,15 @@
             <h3>
                  <strong>To call directly:</strong> <a href="tel://12028043305">202-804-3305</a>
             </h3> -->
+
+            <form @submit.prevent="submitForm()">
+                <p v-cloak v-if="formMessage" class="error"><strong>{{ formMessage }}</strong></p>
+                <input type="text" placeholder="Name*" required v-model.trim="name">
+                <input type="email" placeholder="Email*" required v-model.trim="email">
+                <input type="text" placeholder="Street Address" v-model.trim="street">
+                <input type="tel" placeholder="Zip Code*" required v-model.trim="zipCode">
+                <button>Email Congress</button>
+            </form>
             
             
             <div class="share">

@@ -1,45 +1,66 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function() {
-  var CAMPAIGN_ID = '702reauth';
+  var AN_PETITION_ID = "80108";
+  var AN_TAGS = ["surveillance", "702reauth"];
+  var GENERIC_ERROR = "Unfortunately, that didn't work.";
 
   var app = new Vue({
     el: '#app',
 
     data: function() {
       return {
-        phone: null,
-        errorMessage: null,
-        isSubmitting: false,
-        modalVisible: false
+        formMessage: null,
+        isLoading: false,
+        modalVisible: false,
+        name: null,
+        email: null,
+        street: null,
+        zipCode: null
       }
     },
 
     methods: {
       submitForm: function() {
         var self = this;
-        self.isSubmitting = true;
-        self.$http.post('https://call-congress.fightforthefuture.org/create', {
-          campaignId: CAMPAIGN_ID,
-          userPhone: self.phone,
-          zipcode: null
+        self.isLoading = true;
+        self.$http.post('https://queue.fightforthefuture.org/action', {
+          member: {
+            first_name: self.name,
+            email: self.email,
+            postcode: self.zipCode,
+            street_address: self.street,
+            country: 'US'
+          },
+          hp_enabled: 'true',
+          guard: '',
+          contact_congress: 0,
+          org: 'fftf',
+          an_tags: JSON.stringify(AN_TAGS),
+          an_petition_id: AN_PETITION_ID
         }, { emulateJSON: true })
         .then(function(response){
-          self.isSubmitting = false;
+          self.isLoading = false;
 
-          if (response.ok && response.body.call === 'queued') {
-            self.phone = null;
-            self.errorMessage = null;
+          if (response.ok) {
+            self.resetForm();
             self.showModal();
           }
           else {
-            self.errorMessage = "That didn't work for some reason :(";
+            self.formMessage = GENERIC_ERROR;
           }
         })
         .catch(function(error){
-          self.isSubmitting = false;
-          self.errorMessage = "That didn't work for some reason :(";
+          self.isLoading = false;
+          self.formMessage = GENERIC_ERROR;
         })
+      },
+
+      resetForm: function() {
+        this.name = null;
+        this.email = null;
+        this.street = null;
+        this.zipCode = null;
       },
 
       showModal: function() {
