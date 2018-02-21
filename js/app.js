@@ -1,7 +1,7 @@
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function() {
-  var AN_PETITION_ID = "CHANGE_ME_PLZ";
+  var AN_PETITION_ID = "80108";
   var AN_TAGS = ["surveillance", "702reauth"];
   var GENERIC_ERROR = "Unfortunately, that didn't work.";
 
