@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
         name: null,
         email: null,
         street: null,
-        zipCode: null
+        zipCode: null,
+        optedIn: false
       }
     },
 
@@ -24,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
       submitForm: function() {
         var self = this;
         self.isLoading = true;
-        self.$http.post('https://queue.fightforthefuture.org/action', {
+
+        var data = {
           member: {
             first_name: self.name,
             email: self.email,
@@ -37,8 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
           contact_congress: 0,
           org: 'fftf',
           an_tags: JSON.stringify(AN_TAGS),
-          an_petition_id: AN_PETITION_ID
-        }, { emulateJSON: true })
+          an_petition_id: AN_PETITION_ID,
+        };
+
+        if (!self.optedIn) {
+          data.opt_out = true;
+        }
+
+        self.$http.post('https://queue.fightforthefuture.org/action', data, { emulateJSON: true })
         .then(function(response){
           self.isLoading = false;
 
@@ -61,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         this.email = null;
         this.street = null;
         this.zipCode = null;
+        this.optedIn = false;
       },
 
       showModal: function() {

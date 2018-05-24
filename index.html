@@ -52,9 +52,10 @@
             <h1>
                 <strong>Congress just passed a law expanding authoritarian government surveillance powers for 6 more years.</strong>
             </h1>  
-            <h3>Lawmakers who voted for this law, don't belong in office. Text <strong>FREEDOM</strong> to 384-387 to take the Citizens' Veto pledge and get notified of your lawmakers' voting record before the next election.</a></h3> 
-            <br/>
-           
+            <h3>Lawmakers who voted for this law, don't belong in office. Text <strong>FREEDOM</strong> to 384-387 to take the Citizens' Veto pledge and get notified of your lawmakers' voting record before the next election.<sup>*</sup></a></h3>
+            <p class="disclaimer">
+                <sup>*</sup>Message & data rates apply. You can always text STOP to stop receiving messages.
+            </p>        
 
            <!--
             <br/>
@@ -71,6 +72,10 @@
                 <input type="email" placeholder="Email*" required v-model.trim="email">
                 <input type="text" placeholder="Street Address" v-model.trim="street">
                 <input type="tel" placeholder="Zip Code*" required v-model.trim="zipCode">
+                <label class="disclaimer">
+                    <input type="checkbox" v-model="optedIn">
+                    Yes! I want <a href="https://www.fightforthefuture.org" target="_blank">Fight for the Future</a> to email me updates on this and other important issues, and I can unsubscribe at any time. <a href="https://www.battleforthenet.com/privacy" target="_blank">Privacy Policy</a>
+                </label>
                 <button>Email Congress</button>
             </form>
             
